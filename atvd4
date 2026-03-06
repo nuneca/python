@@ -1,0 +1,53 @@
+agenda = {}
+
+while True:
+    print("\nAGENDA TELEFÔNICA")
+    print("1. Cadastrar contato")
+    print("2. Buscar contato")
+    print("3. Excluir contato")
+    print("4. Listar contatos")
+    print("5. Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        nome = input("Digite o nome: ")
+        telefone = input("Digite o telefone: ")
+
+        if nome in agenda:
+            print("Contato já existe. Telefone será atualizado.")
+
+        agenda[nome] = telefone
+        print("Contato salvo")
+
+    if opcao == "2":
+        nome = input("Digite o nome: ")
+
+        if nome in agenda:
+            print("Telefone:", agenda[nome])
+        else:
+            print("Contato não encontrado.")
+
+    if opcao == "3":
+        nome = input("Digite o nome: ")
+
+        if nome in agenda:
+            del agenda[nome]
+            print("Contato removido.")
+        else:
+            print("Contato não encontrado.")
+
+    if opcao == "4":
+        if len(agenda) == 0:
+            print("Agenda vazia.")
+        else:
+            print("\nContatos cadastrados:")
+            for nome, telefone in agenda.items():
+                print(nome, "-", telefone)
+
+    if opcao == "5":
+        print("Programa encerrado.")
+        break
+
+    if opcao not in ["1", "2", "3", "4", "5"]:
+        print("Opção inválida.")
