@@ -1,0 +1,31 @@
+def eh_primo(numero):
+    if numero < 2:
+        return False
+    
+    i = 2
+    while i < numero:
+        if numero % i == 0:
+            return False
+        i += 1
+    
+    return True
+
+
+inicio = int(input("Digite o início do intervalo: "))
+fim = int(input("Digite o fim do intervalo: "))
+
+numeros_primos = []
+
+i = inicio
+
+while i <= fim:
+    if eh_primo(i):
+        numeros_primos.append(i)
+    i += 1
+
+if len(numeros_primos) > 0:
+    print("Quantidade de primos:", len(numeros_primos))
+    print("Menor primo:", min(numeros_primos))
+    print("Maior primo:", max(numeros_primos))
+else:
+    print("Não existem números primos nesse intervalo.")
