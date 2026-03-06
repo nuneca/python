@@ -1,0 +1,31 @@
+limite = 23
+peso_total = 0
+itens = []
+
+nome = input("Digite o nome do mochileiro: ")
+
+while True:
+    item = input("Digite o nome do item (ou 'fim' para encerrar): ")
+
+    if item.lower() == "fim":
+        break
+
+    peso = float(input("Digite o peso do item em kg: "))
+
+    if peso_total + peso <= limite:
+        itens.append(item)
+        peso_total += peso
+        print("Item adicionado com sucesso!")
+    else:
+        print("Não há espaço suficiente na mochila para esse item.")
+
+espaco_restante = limite - peso_total
+
+print("\n--- Resultado Final ---")
+print("Mochileiro:", nome)
+print("Peso total:", peso_total, "kg")
+print("Espaço restante:", espaco_restante, "kg")
+print("Itens na mochila:")
+
+for i in itens:
+    print("-", i)
